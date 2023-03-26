@@ -7,8 +7,8 @@ Installation requirements:
 
 Configure your api keys and api secret by editing "config.py" file:
 
-  api_key = 'YOUR_API_KEY'
-  api_secret = 'YOUR_API_SECRET'
+  1. api_key = 'YOUR_API_KEY'
+  2. api_secret = 'YOUR_API_SECRET'
 
 Open using:
-  python main.py
+  0. python main.py
