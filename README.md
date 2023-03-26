@@ -1,4 +1,5 @@
 # multi_withdraw_binance
+Multi_withdraw currently working in 100%-115% random amount mode.
 
 Before launching
 
