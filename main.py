@@ -27,7 +27,7 @@ def withdraw_multiple(coin, addresses, amount, network=None):
     addresses_list = [address.strip() for address in addresses.split('\n') if address.strip()]
     for address in addresses_list:
         amount = add_rand_to_num(float(amount))
-        # withdraw(coin, address, amount, network=network)
+        withdraw(coin, address, amount, network=network)
         print(f"{coin}, {address}, {amount}, {network}")
 
 def withdraw_gui():
