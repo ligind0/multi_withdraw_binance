@@ -1,5 +1,6 @@
 import random
 import tkinter as tk
+from time import sleep
 from tkinter import ttk
 
 from binance.client import Client
@@ -23,22 +24,25 @@ def add_rand_to_num(num):
     return str(round(random.uniform(num,1.15*num), 6))
 
 
-def withdraw_multiple(coin, addresses, amount, network=None):
+def withdraw_multiple(coin, addresses, amount, network=None, delay):
     addresses_list = [address.strip() for address in addresses.split('\n') if address.strip()]
     for address in addresses_list:
         amount = add_rand_to_num(float(amount))
         withdraw(coin, address, amount, network=network)
         print(f"{coin}, {address}, {amount}, {network}")
+        print(f"Sleeping {delay} seconds")
+        sleep(delay)
 
 def withdraw_gui():
     def do_withdraw():
         coin = coin_entry.get()
-        address = address_entry.get('1.0', 'end-1c') # get the text from the text widget, removing the newline character at the end
+        address = address_entry.get('1.0', 'end-1c')
         amount = amount_entry.get()
         network = network_var.get()
+        delay = int(delay_entry.get())
         
         if address:
-            withdraw_multiple(coin, address, amount, network=network)
+            withdraw_multiple(coin, address, amount, network=network, delay=delay)
         else:
             withdraw(coin, address, amount, network=network)
 
@@ -57,6 +61,11 @@ def withdraw_gui():
     address_label.grid(row=1, column=0, padx=5, pady=5)
     address_entry = tk.Text(root, height=4, width=30)
     address_entry.grid(row=1, column=1, padx=5, pady=5)
+
+    delay_label = ttk.Label(root, text='Задержка:')
+    delay_label.grid(row=5, column=0, padx=5, pady=5)
+    delay_entry = tk.Entry(root, width=30)
+    delay_entry.grid(row=5, column=1, padx=5, pady=5)
 
     amount_label = ttk.Label(root, text='Amount:')
     amount_label.grid(row=2, column=0, padx=5, pady=5)
