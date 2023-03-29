@@ -24,7 +24,7 @@ def add_rand_to_num(num):
     return str(round(random.uniform(num,1.15*num), 6))
 
 
-def withdraw_multiple(coin, addresses, amount, network=None, delay):
+def withdraw_multiple(coin, addresses, amount, delay, network=None ):
     addresses_list = [address.strip() for address in addresses.split('\n') if address.strip()]
     for address in addresses_list:
         amount = add_rand_to_num(float(amount))
@@ -42,7 +42,7 @@ def withdraw_gui():
         delay = int(delay_entry.get())
         
         if address:
-            withdraw_multiple(coin, address, amount, network=network, delay=delay)
+            withdraw_multiple(coin, address, amount, delay,network=network )
         else:
             withdraw(coin, address, amount, network=network)
 
