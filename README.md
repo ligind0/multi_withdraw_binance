@@ -20,3 +20,23 @@ Features:
   
 
 Open using: python main.py
+
+Ру установка:
+Для установки софта необходимо:
+
+🦾 Сгенерированные Binance API ключи с галочкой выводов
+
+🐍Python
+
+🫡Прямые руки
+—————————————————————-
+Установка:
+
+1️⃣ Качаем сам софт https://github.com/ligind0/multi_withdraw_binance/archive/refs/heads/main.zip и распаковываем где удобно.
+
+2️⃣ В cmd, terminal, console прописываем:
+pip install python-binance
+
+3️⃣ API Keys прописываем в config.py
+
+4️⃣ Запускаете через своё IDE или в командной строке: python main.py
